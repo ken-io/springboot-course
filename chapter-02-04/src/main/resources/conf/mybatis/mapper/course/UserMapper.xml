@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.ken.springboot.course.dao.course.UserMapper">
+
+    <select id="queryById" resultType="io.ken.springboot.course.model.course.User"
+            parameterType="int">
+        SELECT *  FROM user WHERE id = #{id}
+    </select>
+
+    <select id="queryAll" resultType="io.ken.springboot.course.model.course.User">
+        SELECT * FROM user
+    </select>
+
+    <insert id="add" parameterType="io.ken.springboot.course.model.course.User">
+        INSERT INTO user(name,age,hobby) VALUES(#{name},#{age},#{hobby})
+    </insert>
+
+    <delete id="delById" parameterType="int">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
+
+    <update id="updateById" parameterType="io.ken.springboot.course.model.course.User">
+        UPDATE user SET name=#{name},age=#{age},hobby=#{hobby} WHERE id = #{id}
+    </update>
+</mapper>
